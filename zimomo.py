@@ -25,7 +25,7 @@ def extractGlobals(fn):
   exec(code,ns.__dict__)
   out = []
   for i in ns.__dict__.keys():
-    if callable(ns.__dict__[i]):
+    if callable(ns.__dict__[i]) and ns.__dict__[i].__name__ != "Annotated":
       GLOBAL_FN_STORE.append(ns.__dict__[i])
   GLOBAL_NS_STORE.append(ns)
 
